@@ -6,14 +6,14 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.bootcamp.nttdata.examenCliente.builder.BuilderProducto;
-import com.bootcamp.nttdata.examenCliente.controllers.ClientController;
+import com.bootcamp.nttdata.examenCliente.controllers.ClientService;
 import com.bootcamp.nttdata.examenCliente.models.Producto;
 
 @SpringBootApplication
 public class ExamenClienteApplication implements CommandLineRunner{
 
 	@Autowired
-	ClientController controller;
+	ClientService service;
 	
 	/*BUILDER*/
 	private BuilderProducto builder = new BuilderProducto();
@@ -30,11 +30,11 @@ public class ExamenClienteApplication implements CommandLineRunner{
 		Producto producto = builder.conNombre("Camiseta").conPrecio(9.99d).build();
 		
 		// INSERTAMOS EL PRODUCTO EN EL STARTER
-		controller.insertarProducto(producto);
+		service.insertarProducto(producto);
 		
 		// Usando programacion funcional
 		// COMPROBAMOS EL ALMACEN
-		controller.consultarAlmacen().stream().forEach(System.out::println);
+		service.consultarAlmacen().stream().forEach(System.out::println);
 	}
 
 }

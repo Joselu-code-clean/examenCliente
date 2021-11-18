@@ -4,13 +4,13 @@ import java.net.URI;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.bootcamp.nttdata.examenCliente.models.Producto;
 
-@RestController
-public class ClientController {
+@Service
+public class ClientService {
 
 	RestTemplate restTemplate = new RestTemplate();
 	String urlBase = "http://localhost:8888/actuator/almacen";
